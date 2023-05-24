@@ -77,7 +77,7 @@ resolve(response.tasks);
     if (err) {
     reject(err);
     } else {
-    resolve(response.users);
+    resolve(response.user);
     }
     });
     });

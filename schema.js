@@ -6,6 +6,7 @@ const typeDefs = `#graphql
     name: String!
     age : Int!
     email :String!
+    password:String!
     tasks_id: Int!
   }
 

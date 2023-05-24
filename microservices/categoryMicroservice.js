@@ -27,24 +27,24 @@ const categoryProto = grpc.loadPackageDefinition(categoryProtoDefinition).catego
 
 const categoryService = {
   getCategory: (call, callback) => {  
-    const categoryId = call.request.category_id;
-    console.log('Received category ID:', categoryId);
+    const category_id = call.request.category_id;
+    console.log('Received category ID:', category_id);
     const query = 'SELECT * FROM category WHERE id_categorie = ?';
-    connection.query(query, [categoryId], (error, results) => {
+    connection.query(query, [category_id], (error, results) => {
       if (error) {
         console.error(error);
         callback(error);
         return;
       }
       if (results.length === 0) {
-        callback(new Error(`Record with id_categorie ${categoryId} not found`));
+        callback(new Error(`Record with id_categorie ${category_id} not found`));
         return;
       }
       const category = results[0];
       callback(null, {
         category: {
-          id_categorie: category.id_categorie,
-          title_categorie: category.title_categorie,
+          id: category.id_categorie,
+          title: category.title_categorie,
         },
       });
     });

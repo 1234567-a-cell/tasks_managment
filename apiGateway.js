@@ -145,16 +145,16 @@ app.get('/tasks',authentication, (req, res) => {
       }
     });
   });
-  app.post('/users/:user_id/tasks/:task_id',authentication, (req, res) => {
-    const user_id = req.params.user_id;
-    const task_id = req.params.task_id;
+  app.post('/users/:id_user/tasks/:id_tasks',authentication, (req, res) => {
+    const id_user = req.params.id_user;
+    const id_tasks = req.params.id_tasks;
   
     const request = {
-      user_id: user_id,
-      task_id: task_id,
+      id_user: id_user,
+      id_tasks: id_tasks,
     };
   
-    clientUsers.addUserTask(request, (err, response) => {
+    clientUserTasks.AddUserTask(request, (err, response) => {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -190,8 +190,8 @@ app.get('/categories',authentication, (req, res) => {
   
     
     app.get('/category/:id',authentication, (req, res) => {
-      const id = req.params.id;
-      clientCategory.getCategory({ category_id: id }, (err, response) => {
+      const id = req.params.id_categorie;
+      clientCategory.getCategory({ id_categorie: id }, (err, response) => {
         if (err) {
           res.status(500).send(err);
         } else {
@@ -216,7 +216,7 @@ app.get('/categories',authentication, (req, res) => {
       });
     });
     app.delete('/category/:id',authentication, (req, res) => {
-      const id = req.params.id;
+      const id = req.params.id_categorie;
       const request = {
         category_id: id,
       };
