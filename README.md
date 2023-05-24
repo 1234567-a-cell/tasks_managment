@@ -9,7 +9,7 @@ The Task Management Application is designed to streamline task and category mana
 ## Features
 
 - User Management:
-  - Register new users with unique credentials.
+  - Register new users.
   - Login securely using authentication mechanisms.
 
 - Category Management:
