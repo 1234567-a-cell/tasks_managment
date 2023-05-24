@@ -1,0 +1,63 @@
+syntax = "proto3";
+package category;
+import "task.proto";
+
+message Category {
+int32 id = 1;
+string title = 2;
+
+}
+
+message GetCategoryRequest {
+int32 category_id = 1;
+}
+
+message GetCategoryResponse {
+Category category = 1;
+}
+
+message SearchCategoryRequest {
+string query = 1;
+}
+
+message SearchCategoryResponse {
+repeated Category category = 1;
+}
+
+message CreateCategoryRequest {
+  int32 category_id = 1;
+  string title = 2;
+}
+message CreateCategoryResponse {
+  Category category = 1;
+}
+message UpdateCategoryRequest {
+  int32 category_id = 1;
+  string title = 2;
+
+}
+message UpdateCategoryResponse {
+   Category category = 1;
+}
+message DeleteCategoryRequest {
+  int32 category_id = 1;
+}
+
+message DeleteCategoryResponse {
+   Category category = 1;
+}
+message GetTasksByCategoryRequest{
+  int32 category=1;
+}
+message GetTasksByCategoryResponse{
+  repeated Task TasksList=1;
+}
+
+service CategoryService {
+rpc GetCategory(GetCategoryRequest) returns (GetCategoryResponse);
+rpc SearchCategories(SearchCategoryRequest) returns (SearchCategoryResponse);
+rpc createCategory(CreateCategoryRequest) returns (CreateCategoryResponse);
+rpc updateCategory(UpdateCategoryRequest) returns (UpdateCategoryResponse);
+rpc deleteCategory(DeleteCategoryRequest) returns (DeleteCategoryResponse);
+rpc getTaskByCategory(GetTasksByCategoryRequest) returns (GetTasksByCategoryResponse);
+}

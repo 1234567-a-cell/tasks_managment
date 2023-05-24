@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package user_tasks;
+
+import "task.proto";
+
+message user_tasks {
+int32 id_user_task=1;
+int32 id_user=2;
+int32 id_tasks=3;
+Task task=4;
+
+}
+
+message GetUserTasksRequest{
+    int32 id_user=1;
+}
+
+message GetUserTasksResponse{
+   repeated user_tasks user_tasks=1;
+}
+
+message AddUserTaskRequest{
+int32 id_user=2;
+int32 id_tasks=3;
+
+}
+
+message AddUserTaskResponse {
+  user_tasks user_tasks = 1;
+}
+message DeleteFromUserTasksRequest{
+ int32 id_user_task=1;
+}
+message DeleteFromUserTasksResponse{
+   string res=1;
+}
+
+
+service userTasksService {
+rpc AddUserTask(AddUserTaskRequest) returns (AddUserTaskResponse);
+rpc GetUserTask(GetUserTasksRequest) returns (GetUserTasksResponse);
+rpc DeleteFromUserTask(DeleteFromUserTasksRequest) returns (DeleteFromUserTasksResponse);
+
+}

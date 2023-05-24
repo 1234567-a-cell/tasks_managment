@@ -1,0 +1,65 @@
+syntax = "proto3";
+package task;
+import "category.proto";
+message Task {
+int32 id = 1;
+string title = 2;
+string description = 3;
+string status = 4;
+int32 category=5;
+Category category_data=6;
+
+
+}
+message GetTaskRequest {
+int32 task_id = 1;
+}
+message GetTaskResponse {
+Task task = 1;
+}
+message SearchTasksRequest {
+string query = 1;
+}
+message SearchTasksResponse {
+repeated Task tasks = 1;
+}
+
+message CreateTaskRequest {
+  int32 task_id = 1;
+  string title = 2;
+  string description = 3;
+  string status = 4;
+  int32 category=5;
+}
+
+message CreateTaskResponse {
+   Task task = 1;
+}
+
+message UpdateTaskRequest {
+  int32 task_id = 1;
+  string title = 2;
+  string description = 3;
+  string status = 4;
+  int32 category=5;
+}
+message UpdateTaskResponse {
+   Task task = 1;
+}
+message DeleteTaskRequest {
+  int32 task_id = 1;
+}
+
+message DeleteTaskResponse {
+   Task task = 1;
+}
+
+
+service TaskService {
+rpc GetTask(GetTaskRequest) returns (GetTaskResponse);
+rpc SearchTasks(SearchTasksRequest) returns (SearchTasksResponse);
+rpc createTask(CreateTaskRequest) returns (CreateTaskResponse);
+rpc updateTask(UpdateTaskRequest) returns (UpdateTaskResponse);
+rpc deleteTask(DeleteTaskRequest) returns (DeleteTaskResponse);
+
+}

@@ -1,0 +1,47 @@
+{
+  "name": "examaos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "build": "react-scripts build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.7.1",
+    "@grpc/grpc-js": "^1.8.14",
+    "@grpc/proto-loader": "^0.7.7",
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.2.3",
+    "concurrently": "^8.0.1",
+    "cors": "^2.8.5",
+    "create-react-app": "^5.0.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2",
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
